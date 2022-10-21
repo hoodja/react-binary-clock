@@ -11,3 +11,25 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.clock {
+  text-align: center;
+}
+
+.dot {
+  height: 120px;
+  width: 120px;
+  background-color: #DDD;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 5px 5px 10px #AAA;
+  margin: 10px;
+  border: 1px solid #BBB;
+  transition: background-color  500ms ease-in-out,
+              border-color  500ms ease-in-out;
+}
+
+.on {
+  background-color: #FF0000;
+  border: 1px solid #FF0000;
+}
