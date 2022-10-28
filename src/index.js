@@ -84,16 +84,16 @@ class App extends React.Component {
     const seconds = this.state.time.getSeconds();
     return (
         <div className="App clock">
+          <div key="modal" className="modal" style={{display: this.state.popModal ? 'block' : 'none' }} >
+            <h2>Keyboard Shortcuts</h2>
+            <div key="?">? - Show help</div>
+            <div key="S">S - Toggle clock on/off</div>
+            <div key="esc">esc - exit help</div>
+          </div>
           <Toggle started = {this.state.started} onClick={() => { this.toggle(); }} />
           <Number key="hours" kind="hours" digit={hours}/>
           <Number key="minutes" kind="minutes" digit={minutes}/>
           <Number key="seconds" kind="seconds" digit={seconds}/>
-          <div key="modal" className="modal" style={{display: this.state.popModal ? 'block' : 'none' }} >
-            <p>Keyboard Shortcuts</p>
-            <div key="?">? - Show help</div>
-            <div key="S">S - Toggle clock on/off</div>
-            <div key="S">esc - exit help</div>
-          </div>
         </div>
     );
   }

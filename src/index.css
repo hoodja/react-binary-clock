@@ -30,8 +30,8 @@ code {
 }
 
 .dot {
-  width: 10vh;
-  height: 10vh;;
+  width: 8vh;
+  height: 8vh;;
   display: inline-block;
   background-color: #DDD;
   border-radius: 50%;
@@ -49,9 +49,16 @@ code {
 
 .modal {
   position: absolute;
-  width: 100%;
+  margin: auto;
+  width: 75%;
   height: 100%;
-  background: rgba(128, 128, 128, 0.9);
+  left: 0; 
+  right: 0; 
+  margin-left: auto; 
+  margin-right: auto; 
+
+  padding-top: 10%;
+  background: rgba(128, 128, 128, 0.7);
   color: white;
   font-weight: bold;
 }
