@@ -1,7 +1,6 @@
 import React from 'react';
 import {createRoot} from 'react-dom/client';
 import './index.css';
-import './App.css';
 
 
 class App extends React.Component {
@@ -58,11 +57,11 @@ console.log("toggle!");
     return (
         <div className="App clock">
         <Toggle started = {this.state.started} onClick={() => { this.toggle(); }} />
-        <Digit key="hours" kind="hours" digit={hours}/>
+        <Number key="hours" kind="hours" digit={hours}/>
         <br />
-        <Digit key="minutes" kind="minutes" digit={minutes}/>
+        <Number key="minutes" kind="minutes" digit={minutes}/>
         <br />
-        <Digit key="seconds" kind="seconds" digit={seconds}/>
+        <Number key="seconds" kind="seconds" digit={seconds}/>
         <br />
         </div>
         );
@@ -75,7 +74,7 @@ function Toggle(props) {
       );
 }
 
-function Digit(props) { 
+function Number(props) { 
 
   let first_dots = [];
   let first = Math.floor(props.digit / 10);
