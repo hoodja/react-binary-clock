@@ -6,14 +6,19 @@ import './index.css';
 class App extends React.Component {
   constructor(props) {
     super(props);
+    this.handleKeyUp = this.handleKeyUp.bind(this);
+    this.handleKeyDown = this.handleKeyDown.bind(this);
     this.state = {
       time: props.time,
       started: false,
+      popModal: false,
     }
   }
 
   componentDidMount() {
     this.start();
+    window.addEventListener("keydown", this.handleKeyDown, true);
+    window.addEventListener("keyup", this.handleKeyUp, true);
   } 
 
   componentWillUnmount() {
@@ -49,6 +54,30 @@ class App extends React.Component {
     this.setState({ time: t, }); 
   }
 
+  handleKeyDown(e) {
+    const key = e.key;
+
+    if (key === "?") {
+      this.setState( {
+        popModal: true,
+      });
+    }
+
+    if (key === "s" || key === "S") {
+      this.toggle();
+    }
+  }
+
+  handleKeyUp(e) {
+    const key = e.key;
+
+    if (key === "Escape") {
+      this.setState( {
+        popModal: false,
+      });
+    }
+  }
+
   render() {
     const hours = this.state.time.getHours();
     const minutes = this.state.time.getMinutes();
@@ -59,6 +88,12 @@ class App extends React.Component {
           <Number key="hours" kind="hours" digit={hours}/>
           <Number key="minutes" kind="minutes" digit={minutes}/>
           <Number key="seconds" kind="seconds" digit={seconds}/>
+          <div key="modal" className="modal" style={{display: this.state.popModal ? 'block' : 'none' }} >
+            <p>Keyboard Shortcuts</p>
+            <div key="?">? - Show help</div>
+            <div key="S">S - Toggle clock on/off</div>
+            <div key="S">esc - exit help</div>
+          </div>
         </div>
     );
   }
