@@ -21,7 +21,6 @@ class App extends React.Component {
   }
 
   toggle() {
-console.log("toggle!");
     if (this.state.started) {
       this.stop();
     } else {
@@ -56,22 +55,19 @@ console.log("toggle!");
     const seconds = this.state.time.getSeconds();
     return (
         <div className="App clock">
-        <Toggle started = {this.state.started} onClick={() => { this.toggle(); }} />
-        <Number key="hours" kind="hours" digit={hours}/>
-        <br />
-        <Number key="minutes" kind="minutes" digit={minutes}/>
-        <br />
-        <Number key="seconds" kind="seconds" digit={seconds}/>
-        <br />
+          <Toggle started = {this.state.started} onClick={() => { this.toggle(); }} />
+          <Number key="hours" kind="hours" digit={hours}/>
+          <Number key="minutes" kind="minutes" digit={minutes}/>
+          <Number key="seconds" kind="seconds" digit={seconds}/>
         </div>
-        );
+    );
   }
 }
 
 function Toggle(props) {
   return (
       <button onClick={() => { props.onClick() }}>{props.started ? 'Stop' : 'Start'}</button>
-      );
+  );
 }
 
 function Number(props) { 
@@ -98,6 +94,7 @@ function Number(props) {
     first_dots.unshift(<div key={"first_" + props.kind + "_" + i} className={first_class}></div>);
     second_dots.unshift(<div key={"second_" + props.kind + "_" + i} className={second_class}></div>);
 	}
+
 	return (
 			<div key={'d'+props.kind} className="digit">
 				{first_dots}
